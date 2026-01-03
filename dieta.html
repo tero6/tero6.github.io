@@ -81,63 +81,137 @@ document.getElementById("dayTitle").textContent = [
   "Proteine", "Amidon", "Carbohidrați", "Vitamine"
 ][dayNumber-1];
 
-/* --- MENIURI EXTINSE PENTRU FIECARE ZI --- */
+/* --- MENIURI + ALIMENTE PERMISE / INTERZISE --- */
 const menus = {
 1:`
-<strong>🌟 Ziua proteinelor – prânz (12:00–14:00)</strong><br>
+<strong>🌟 Ziua 1 – PROTEINE</strong><br><br>
+
+<strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br>
 • Piept de pui la grătar cu salată verde<br>
-• Somon la cuptor cu broccoli și quinoa<br>
-• Tocăniță de vită cu ciuperci și salată crudă<br>
-• Omletă cu ciuperci și ardei<br>
-• Salată grecească cu brânză feta<br>
-Opțional: supă clară de legume + felie de pâine integrală.<br><br>
+• Somon la cuptor cu broccoli<br>
+• Tocăniță de vită cu ciuperci<br>
+• Omletă cu legume<br>
+• Salată grecească cu feta<br>
+• Supă clară de legume + 1 felie de pâine<br><br>
 
 <strong>🌙 Cină (18:00–20:00)</strong><br>
-• Jumătate din prânz, fără pâine/ supă<br>
-• Salată verde cu ou fiert și ton<br>
-• Piept de curcan la cuptor cu salată proaspătă
+• Jumătate din prânz (fără pâine / supă)<br>
+• Salată verde cu ou și ton<br><br>
+
+<strong>✅ Alimente permise</strong><br>
+<b>Proteine animale:</b><br>
+• Carne de pasăre: pui, curcan, rață, gâscă<br>
+• Carne roșie: porc, vită, miel, oaie, vânat<br>
+• Organe: ficat, inimă, rinichi, limbă, burtă<br>
+• Mezeluri: șuncă presată, jambon, prosciutto<br>
+• Pește: somon, păstrăv, macrou, hering<br>
+• Fructe de mare: creveți, midii, scoici, caracatiță<br>
+• Lactate degresate: brânză, telemea, mozzarella, iaurt, kefir<br>
+• Ouă<br><br>
+
+<b>Permise suplimentar:</b><br>
+• Fructe: mere, pere, banane, kiwi, citrice, fructe de pădure<br>
+• Legume (fără leguminoase): roșii, castraveți, ardei, salată, spanac, dovlecel, ciuperci, broccoli<br>
+• Supă de legume<br>
+• 1 felie de pâine
 `,
 
 2:`
-<strong>🌟 Ziua amidonului – prânz</strong><br>
-• Orez brun cu legume sotate<br>
-• Iahnie de fasole cu salată de crudități<br>
-• Cartofi copți cu salată de varză și morcovi<br>
-• Tocăniță de linte cu pătrunjel<br>
-Opțional: supă cremă de legume + felie de pâine integrală.<br><br>
+<strong>🌟 Ziua 2 – AMIDON</strong><br><br>
+
+<strong>🍽️ Sugestii prânz</strong><br>
+• Orez brun cu legume<br>
+• Iahnie de fasole<br>
+• Cartofi copți cu salată<br>
+• Linte sau năut cu verdețuri<br>
+• Supă clară de legume (300 ml)<br><br>
 
 <strong>🌙 Cină</strong><br>
-• Jumătate din prânz, fără pâine/supă<br>
-• Pilaf de quinoa cu salată mixtă<br>
-• Ghefi de mazăre cu dovlecei la aburi
+• Jumătate din prânz (fără pâine / supă)<br><br>
+
+<strong>✅ Alimente permise</strong><br>
+• Cereale integrale: orez brun, quinoa, hrișcă<br>
+• Leguminoase: fasole, linte, mazăre, năut<br>
+• Legume: spanac, broccoli, varză, dovlecel, morcov, vinete, ciuperci<br>
+• Fructe: banane, mere, kiwi, citrice, fructe de pădure<br>
+• 40 g pâine<br>
+• 100 g nuci și semințe crude<br>
+• Cafea neîndulcită (fără lapte)<br>
+• Ceai neîndulcit<br>
+• Min. 2 L apă<br><br>
+
+<strong>❌ Alimente interzise</strong><br>
+• Proteine animale<br>
+• Cartofi prăjiți, chipsuri, snack-uri<br>
+• Uleiuri, prăjeli<br>
+• Zahăr<br>
+• Alcool, sucuri îndulcite<br>
+• Sosuri (maioneză, ketchup, smântână)<br>
+• Cafea cu lapte
 `,
 
 3:`
-<strong>🌟 Ziua carbohidraților – prânz</strong><br>
-• Paste integrale cu sos de roșii și busuioc<br>
-• Pizza vegetariană cu legume (fără carne)<br>
-• Lipii cu legume și avocado<br>
-• Couscous cu legume la cuptor<br>
-• Panini cu roșii și ardei copți<br><br>
+<strong>🌟 Ziua 3 – CARBOHIDRAȚI</strong><br><br>
+
+<strong>🍽️ Sugestii prânz</strong><br>
+• Paste albe cu sos de roșii<br>
+• Pizza vegetariană<br>
+• Lipii sau sandviș vegetarian<br>
+• Mămăligă<br><br>
 
 <strong>🌙 Cină</strong><br>
 • Jumătate din prânz<br>
-• Clătite simple (făină integrală) cu fructe<br>
-• Desert cu 3 pătrățele de ciocolată neagră
+• Clătite simple<br>
+• 3 pătrățele ciocolată neagră<br><br>
+
+<strong>✅ Alimente permise</strong><br>
+• Făină albă, griș, mălai<br>
+• Produse de panificație și patiserie<br>
+• Dulciuri: prăjituri, biscuiți, înghețată, gem<br>
+• Pizza, burger vegetarian, bruschete<br>
+• Fructe (mic dejun): mere, citrice, kiwi, struguri<br>
+• Legume: roșii, castraveți, rucola, dovlecei, spanac<br>
+• Oleaginoase crude (doar dimineața)<br>
+• Supă clară de legume<br>
+• Cafea / ceai fără lapte<br>
+• Min. 2 L apă<br><br>
+
+<strong>❌ Alimente interzise</strong><br>
+• Carne, pește, ouă, lactate<br>
+• Leguminoase și amidonoase<br>
+• Uleiuri, prăjeli<br>
+• Alcool, băuturi carbogazoase<br>
+• Cafea cu lapte
 `,
 
 4:`
-<strong>🌟 Ziua vitaminelor – întreaga zi</strong><br>
-🍏 Fructe proaspete din 2 în 2 ore (mere, kiwi, portocale,<br>
-  pepene, fructe de pădure) 🍉<br>
-🥗 Legume proaspete: roșii, castraveți, morcovi, țelină,<br>
-  salată verde, rucola, broccoli, spanac 🥦<br>
-🥑 Nuci & semințe (mână de nuci/ semințe)<br><br>
+<strong>🌟 Ziua 4 – VITAMINE</strong><br><br>
+
+<strong>🍏 Pe tot parcursul zilei</strong><br>
+• Fructe din 2 în 2 ore<br>
+• Legume crude, gătite, smoothie, salate<br><br>
 
 <strong>🌙 Cină</strong><br>
-• Salată mare de legume & fructe proaspete<br>
+• Salată mare de fructe & legume<br>
 • Compot neîndulcit<br>
-• Nimic după ora 20:00
+• Nimic după ora 20:00<br><br>
+
+<strong>✅ Alimente permise</strong><br>
+• Fructe: mere, kiwi, citrice, pepene, fructe de pădure<br>
+• Legume: broccoli, dovlecel, vinete, varză, sfeclă, morcov<br>
+• Fructe deshidratate<br>
+• Nuci și semințe crude (gustare)<br>
+• Plante aromatice<br>
+• Cafea și ceai neîndulcite<br>
+• Multă apă + mișcare minim 30 min<br><br>
+
+<strong>❌ Alimente interzise</strong><br>
+• Carne, pește, ouă, lactate<br>
+• Amidon, leguminoase<br>
+• Pâine, paste, dulciuri<br>
+• Uleiuri, grăsimi<br>
+• Alcool, sucuri, îndulcitori<br>
+• Sosuri (maioneză, ketchup)
 `
 };
 
