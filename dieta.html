@@ -35,12 +35,10 @@ body { background:#121212; color:#fff; }
     <h5>🍎 Mic dejun (zilnic)</h5>
     <ul class="mb-0">
       <li>Interval: <strong>08:00 – 12:00</strong></li>
-      <li>Consumă <strong>doar fructe</strong>, indiferent de zi</li>
-      <li>Poți mânca fructe din <strong>2 în 2 ore</strong></li>
-      <li>Fructe simple, smoothie, fresh sau compot neîndulcit</li>
-      <li>Înainte de micul dejun: <strong>1 pahar cu apă</strong></li>
-      <li>Este permisă <strong>cafea neîndulcită</strong> sau cu puțină miere</li>
-      <li>⚠️ Excepție: ziua de post (doar apă)</li>
+      <li>Consumă <strong>doar fructe</strong>, din 2 în 2 ore</li>
+      <li>Fructe simple sau smoothie fără zahăr</li>
+      <li>Este permisă <strong>cafea neîndulcită</strong></li>
+      <li>⚠️ Excepție: zi de post (doar apă)</li>
     </ul>
   </div>
 </div>
@@ -63,7 +61,7 @@ body { background:#121212; color:#fff; }
 
 <script>
 /* --- SETARE ZIUA START --- */
-const startDate = new Date("2026-01-04"); // dieta începe de 4 ianuarie 2026
+const startDate = new Date("2026-01-04"); 
 startDate.setHours(0,0,0,0);
 
 const today = new Date();
@@ -83,43 +81,64 @@ document.getElementById("dayTitle").textContent = [
   "Proteine", "Amidon", "Carbohidrați", "Vitamine"
 ][dayNumber-1];
 
-/* --- MENIURI PENTRU FIECARE ZI (MAI MULTE OPTIUNI) --- */
+/* --- MENIURI EXTINSE PENTRU FIECARE ZI --- */
 const menus = {
-1:`<strong>Prânz (12:00–14:00)</strong><br>
-- Piept de pui la grătar cu broccoli și morcovi<br>
-- Somon la cuptor cu sparanghel<br>
-- Salată de ton cu legume verzi<br>
-Opțional: supă clară de legume.<br><br>
-<strong>Cină (18:00–20:00)</strong><br>
-- Jumătate din prânz, fără pâine și supă.<br>
-- Omletă cu ciuperci sau legume sotate.`,
+1:`
+<strong>🌟 Ziua proteinelor – prânz (12:00–14:00)</strong><br>
+• Piept de pui la grătar cu salată verde<br>
+• Somon la cuptor cu broccoli și quinoa<br>
+• Tocăniță de vită cu ciuperci și salată crudă<br>
+• Omletă cu ciuperci și ardei<br>
+• Salată grecească cu brânză feta<br>
+Opțional: supă clară de legume + felie de pâine integrală.<br><br>
 
-2:`<strong>Prânz</strong><br>
-- Ardei umpluți cu orez și legume<br>
-- Cartofi copți cu legume și iaurt grecesc<br>
-- Salată de quinoa cu legume și avocado<br>
-Opțional: supă de legume.<br><br>
-<strong>Cină</strong><br>
-- Jumătate din prânz<br>
-- Smoothie proteic cu lapte vegetal și fructe.`,
+<strong>🌙 Cină (18:00–20:00)</strong><br>
+• Jumătate din prânz, fără pâine/ supă<br>
+• Salată verde cu ou fiert și ton<br>
+• Piept de curcan la cuptor cu salată proaspătă
+`,
 
-3:`<strong>Prânz</strong><br>
-- Paste integrale cu sos de roșii și busuioc<br>
-- Legume la grătar cu brânză feta<br>
-- Supă cremă de linte sau năut<br>
-Opțional: 3 pătrățele ciocolată neagră.<br><br>
-<strong>Cină</strong><br>
-- Jumătate din prânz<br>
-- Salată de crudități cu nuci și semințe.`,
+2:`
+<strong>🌟 Ziua amidonului – prânz</strong><br>
+• Orez brun cu legume sotate<br>
+• Iahnie de fasole cu salată de crudități<br>
+• Cartofi copți cu salată de varză și morcovi<br>
+• Tocăniță de linte cu pătrunjel<br>
+Opțional: supă cremă de legume + felie de pâine integrală.<br><br>
 
-4:`<strong>Prânz</strong><br>
-- Salată mare cu crudități + migdale raw la 2h<br>
-- Smoothie verde cu spanac, măr, avocado<br>
-- Supă cremă de legume fără carne<br>
-Fructe din 2 în 2 ore.<br><br>
-<strong>Cină</strong><br>
-- Mere coapte cu scorțișoară sau compot neîndulcit<br>
-- Nimic după ora 20:00.`
+<strong>🌙 Cină</strong><br>
+• Jumătate din prânz, fără pâine/supă<br>
+• Pilaf de quinoa cu salată mixtă<br>
+• Ghefi de mazăre cu dovlecei la aburi
+`,
+
+3:`
+<strong>🌟 Ziua carbohidraților – prânz</strong><br>
+• Paste integrale cu sos de roșii și busuioc<br>
+• Pizza vegetariană cu legume (fără carne)<br>
+• Lipii cu legume și avocado<br>
+• Couscous cu legume la cuptor<br>
+• Panini cu roșii și ardei copți<br><br>
+
+<strong>🌙 Cină</strong><br>
+• Jumătate din prânz<br>
+• Clătite simple (făină integrală) cu fructe<br>
+• Desert cu 3 pătrățele de ciocolată neagră
+`,
+
+4:`
+<strong>🌟 Ziua vitaminelor – întreaga zi</strong><br>
+🍏 Fructe proaspete din 2 în 2 ore (mere, kiwi, portocale,<br>
+  pepene, fructe de pădure) 🍉<br>
+🥗 Legume proaspete: roșii, castraveți, morcovi, țelină,<br>
+  salată verde, rucola, broccoli, spanac 🥦<br>
+🥑 Nuci & semințe (mână de nuci/ semințe)<br><br>
+
+<strong>🌙 Cină</strong><br>
+• Salată mare de legume & fructe proaspete<br>
+• Compot neîndulcit<br>
+• Nimic după ora 20:00
+`
 };
 
 /* --- AFISARE MENIU DIRECT --- */
