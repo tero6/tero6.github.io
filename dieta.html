@@ -63,89 +63,67 @@ body { background:#121212; }
 </footer>
 
 <script>
-const startDate = new Date();
-startDate.setDate(startDate.getDate() + 1); // dieta începe de mâine
+/* --- SETARE ZIUA START --- */
+const startDate = new Date("2026-01-04"); // dieta începe de 4 ianuarie 2026
 startDate.setHours(0,0,0,0);
 
 const today = new Date();
 today.setHours(0,0,0,0);
 
-const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
-const dayNumber = (diffDays % 12 + 12) % 12 + 1;
+/* --- CALCUL ZIUA CURRNTĂ (CICLU 4 ZILE) --- */
+let diffDays = Math.floor((today - startDate) / (1000*60*60*24));
+const dayNumber = ((diffDays % 4 + 4) % 4) + 1;
 
+/* --- AFISARE DATA --- */
 document.getElementById("todayDate").textContent =
   today.toLocaleDateString("ro-RO",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
 
+/* --- AFISARE ZIUA SI TIPUL --- */
 document.getElementById("dayBadge").textContent = `Ziua ${dayNumber}`;
 document.getElementById("dayTitle").textContent = [
-  "Proteine","Amidon","Carbohidrați","Vitamine",
-  "Proteine","Amidon","Carbohidrați","Vitamine",
-  "Proteine","Amidon","Carbohidrați","Vitamine"
+  "Proteine", "Amidon", "Carbohidrați", "Vitamine"
 ][dayNumber-1];
 
+/* --- MENIURI PENTRU FIECARE ZI (MAI MULTE OPTIUNI) --- */
 const menus = {
 1:`<strong>Prânz (12:00–14:00)</strong><br>
-Pulpe de pui fără piele cu legume la grătar + salată. 1 felie de pâine permisă.<br>
-Opțional: 300 ml supă clară de legume.<hr>
+- Piept de pui la grătar cu broccoli și morcovi<br>
+- Somon la cuptor cu sparanghel<br>
+- Salată de ton cu legume verzi<br>
+Opțional: supă clară de legume.<hr>
 <strong>Cină (18:00–20:00)</strong><br>
-Jumătate din prânz, fără pâine și fără supă.`,
+- Jumătate din prânz, fără pâine și supă.<br>
+- Omletă cu ciuperci sau legume sotate.`,
 
 2:`<strong>Prânz</strong><br>
-Ardei umpluți cu orez + salată. Pâine și supă clară opțional.<hr>
+- Ardei umpluți cu orez și legume<br>
+- Cartofi copți cu legume și iaurt grecesc<br>
+- Salată de quinoa cu legume și avocado<br>
+Opțional: supă de legume.<hr>
 <strong>Cină</strong><br>
-Jumătate din prânz, fără pâine și supă.`,
+- Jumătate din prânz<br>
+- Smoothie proteic cu lapte vegetal și fructe.`,
 
 3:`<strong>Prânz</strong><br>
-Paste fără ou cu sos de roșii. Supă clară opțional.<hr>
+- Paste integrale cu sos de roșii și busuioc<br>
+- Legume la grătar cu brânză feta<br>
+- Supă cremă de linte sau năut<br>
+Opțional: 3 pătrățele ciocolată neagră.<hr>
 <strong>Cină</strong><br>
-Jumătate din prânz + 3 pătrățele de ciocolată neagră sau un desert.`,
+- Jumătate din prânz<br>
+- Salată de crudități cu nuci și semințe.`,
 
 4:`<strong>Prânz</strong><br>
-Salată mare de crudități. La 2h: max 100g migdale raw. Fructe din 2 în 2 ore.<hr>
+- Salată mare cu crudități + migdale raw la 2h<br>
+- Smoothie verde cu spanac, măr, avocado<br>
+- Supă cremă de legume fără carne<br>
+Fructe din 2 în 2 ore.<hr>
 <strong>Cină</strong><br>
-Mere coapte cu scorțișoară. Nimic după ora 20:00.`,
-
-5:`<strong>Prânz</strong><br>
-Păstrăv la cuptor sau grătar cu legume sote. Pâine + supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz, fără pâine și supă.`,
-
-6:`<strong>Prânz</strong><br>
-Tocăniță de cartofi fără carne + salată de sfeclă. Supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz.`,
-
-7:`<strong>Prânz</strong><br>
-Tocăniță de ciuperci cu mămăligă. Supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz + 3 pătrățele de ciocolată.`,
-
-8:`<strong>Prânz</strong><br>
-Legume la grătar. La 2h: migdale sau smoothie. La alte 2h: fructe.<hr>
-<strong>Cină</strong><br>
-Compot de pere neîndulcit sau salată de fructe.`,
-
-9:`<strong>Prânz</strong><br>
-Spanac cu ouă + pâine. Supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz.`,
-
-10:`<strong>Prânz</strong><br>
-Fasole scăzută fără carne + salată. Pâine și supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz.`,
-
-11:`<strong>Prânz</strong><br>
-Cuscus cu legume. Supă clară opțional.<hr>
-<strong>Cină</strong><br>
-Jumătate din prânz + ciocolată sau pâine cu ciocolată.`,
-
-12:`<strong>Prânz</strong><br>
-Legume la cuptor. La 2h: migdale sau fructe.<hr>
-<strong>Cină</strong><br>
-Salată de crudități sau fructe.`
+- Mere coapte cu scorțișoară sau compot neîndulcit<br>
+- Nimic după ora 20:00.`
 };
 
+/* --- AFISARE MENIU --- */
 document.getElementById("menuAccordion").innerHTML = `
 <div class="accordion-item">
   <h2 class="accordion-header">
@@ -158,7 +136,7 @@ document.getElementById("menuAccordion").innerHTML = `
   </div>
 </div>`;
 
-/* THEME */
+/* --- THEME --- */
 function toggleTheme(){
   const html=document.documentElement;
   const t=html.getAttribute("data-bs-theme")==="dark"?"light":"dark";
