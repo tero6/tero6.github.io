@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dieta Rina – Ziua curentă</title>
+<title>Dieta Rina</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,6 +27,30 @@ body { background:#121212; color:#fff; }
 <div class="text-center mb-4">
   <h1 class="fw-bold">Ziua curentă din Dieta Rina</h1>
   <p class="text-secondary" id="todayDate"></p>
+</div>
+  
+<!-- MIC DEJUN GENERAL -->
+<div class="card mb-4">
+  <div class="card-body">
+    <h5>🍎 Mic dejun (zilnic)</h5>
+    <ul class="mb-0">
+      <li>Interval: <strong>08:00 – 12:00</strong></li>
+      <li>Consumă <strong>doar fructe</strong>, din 2 în 2 ore</li>
+      <li>Fructe simple sau smoothie fără zahăr</li>
+      <li>Este permisă <strong>cafea neîndulcită</strong></li>
+      <li>⚠️ Excepție: zi de post (doar apă)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ZIUA CURENTĂ -->
+<div class="card">
+  <div class="card-body">
+    <span class="badge bg-primary badge-day mb-2" id="dayBadge"></span>
+    <h4 class="mb-3" id="dayTitle"></h4>
+
+    <div id="menuAccordion"></div>
+  </div>
 </div>
 
 <!-- CONDITII & SECRETE DIETA RINA -->
@@ -70,30 +94,6 @@ body { background:#121212; color:#fff; }
   </div>
 </div>
   
-<!-- MIC DEJUN GENERAL -->
-<div class="card mb-4">
-  <div class="card-body">
-    <h5>🍎 Mic dejun (zilnic)</h5>
-    <ul class="mb-0">
-      <li>Interval: <strong>08:00 – 12:00</strong></li>
-      <li>Consumă <strong>doar fructe</strong>, din 2 în 2 ore</li>
-      <li>Fructe simple sau smoothie fără zahăr</li>
-      <li>Este permisă <strong>cafea neîndulcită</strong></li>
-      <li>⚠️ Excepție: zi de post (doar apă)</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ZIUA CURENTĂ -->
-<div class="card">
-  <div class="card-body">
-    <span class="badge bg-primary badge-day mb-2" id="dayBadge"></span>
-    <h4 class="mb-3" id="dayTitle"></h4>
-
-    <div id="menuAccordion"></div>
-  </div>
-</div>
-
 </div>
 
 <footer class="text-center text-secondary py-3 small">
@@ -129,15 +129,37 @@ const menus = {
 
 <strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br>
 • Piept de pui la grătar cu salată verde<br>
+• Pulpe de pui (fără piele) cu legume la grătar: vinete, dovlecei, ciuperci + salată de roșii, ceapă și castraveți<br>
 • Somon la cuptor cu broccoli<br>
 • Tocăniță de vită cu ciuperci<br>
-• Omletă cu legume<br>
-• Salată grecească cu feta<br>
+• Tocăniță de vită cu ceapă, morcovi, ardei, bulion (fără cartofi / orez)<br>
+• Piept de curcan la grătar sau cuptor<br>
+• Frigărui de pui sau curcan (fără cartofi)<br>
+• Pui la cuptor cu legume<br>
+• Coaste sau cotlet de porc la grătar / cuptor<br>
+• Carne de vită la grătar / fiartă / cuptor<br>
+• Dovlecei umpluți cu carne tocată la cuptor (fără orez, orice tip de carne)<br>
+• Omletă cu legume (ardei, ceapă, ciuperci)<br>
+• Salată grecească cu brânză feta<br>
 • Supă clară de legume + 1 felie de pâine<br><br>
 
+<em>Dacă nu este suficient:</em><br>
+• După masă poți consuma până la <strong>300 ml supă clară de legume</strong><br><br>
+
 <strong>🌙 Cină (18:00–20:00)</strong><br>
-• Jumătate din prânz (fără pâine / supă)<br>
-• Salată verde cu ou și ton<br><br>
+• Jumătate din prânz (fără pâine / fără supă)<br>
+• Salată verde cu ou și ton<br>
+• Omletă din 2 ouă cu ardei și ceapă (tigaie antiaderentă, fără ulei)<br>
+• Conopidă gratinată la cuptor<br>
+• Ardei umpluți cu brânză și roșii<br>
+• Guacamole cu ou poșat sau fiert<br><br>
+
+<strong>⚠️ Reguli importante</strong><br>
+• Nu combina proteinele cu amidon sau carbohidrați<br>
+• Gătit fără ulei (grătar, cuptor, fiert)<br>
+• Condimentele naturale sunt permise<br>
+• După ora 20:00 nu se mai mănâncă<br><br>
+
 
 <strong>✅ Alimente permise</strong><br>
 <b>Proteine animale:</b><br>
