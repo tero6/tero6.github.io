@@ -1,1 +1,147 @@
-<!DOCTYPE html> <html lang="ro" data-bs-theme="dark"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Dieta Rina</title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <style> body { background:#121212; color:#fff; } .card { box-shadow:0 0 18px rgba(0,0,0,.4); } .badge-day { font-size:1rem; } </style> </head> <body> <nav class="navbar navbar-dark bg-black shadow"> <div class="container d-flex justify-content-center"> <span class="navbar-brand fw-bold">🥗 Dieta Rina</span> </div> </nav> <div class="container py-4"> <div class="text-center mb-4"> <h1 class="fw-bold" id="todayDate"></h1> </div> <!-- MIC DEJUN GENERAL --> <div class="card mb-4"> <div class="card-body"> <h5>🍎 Mic dejun (zilnic)</h5> <ul class="mb-0"> <li>Interval: <strong>08:00 – 12:00</strong></li> <li>Consumă <strong>doar fructe</strong>, din 2 în 2 ore</li> <li>Fructe simple sau smoothie fără zahăr</li> <li>Este permisă <strong>cafea neîndulcită</strong></li> <li>⚠️ Excepție: zi de post (doar apă)</li> </ul> </div> </div> <!-- ZIUA CURENTĂ --> <div class="card"> <div class="card-body"> <span class="badge bg-primary badge-day mb-2" id="dayBadge"></span> <h4 class="mb-3" id="dayTitle"></h4> <div id="menuAccordion"></div> </div> </div> <!-- CONDITII & SECRETE DIETA RINA --> <div class="card mt-4"> <div class="card-body"> <h5 class="mb-3">📌 Condiții & Secrete Dieta Rina</h5> <strong>✅ Reguli esențiale</strong> <ul> <li>Dieta se bazează pe un ciclu de <strong>4 zile</strong> care se repetă.</li> <li><strong>Nu se combină proteinele cu carbohidrații sau amidonul.</strong></li> <li>Între mese trebuie respectat un interval minim de <strong>4 ore</strong>.</li> <li>Mic dejunul este <strong>doar din fructe</strong>, indiferent de zi.</li> <li>Cina este întotdeauna <strong>mai mică decât prânzul</strong>.</li> <li>După ora <strong>20:00 nu se mai mănâncă</strong>.</li> </ul> <strong>🧠 Secrete pentru rezultate mai bune</strong> <ul> <li>Hidratarea este esențială: <strong>minim 2 litri de apă/zi</strong>.</li> <li>Sportul ușor (mers, stretching) accelerează rezultatele.</li> <li>Nu se folosesc <strong>uleiuri sau prăjeli</strong>, indiferent de zi.</li> <li>Condimentele naturale sunt permise și recomandate.</li> <li>Cafeaua este permisă <strong>fără lapte și fără zahăr</strong>.</li> <li>Alcoolul încetinește arderea – este recomandat să fie evitat.</li> </ul> <strong>⚠️ Greșeli frecvente</strong> <ul> <li>Combinarea alimentelor din zile diferite.</li> <li>Săritul peste mese urmat de porții mari.</li> <li>Gustări „nevinovate” între mese.</li> <li>Consum excesiv de dulciuri în ziua de carbohidrați.</li> </ul> <strong>💡 Recomandare finală</strong> <p class="mb-0"> Respectarea strictă a structurii pe zile este cheia succesului. Dieta Rina nu este o dietă de înfometare, ci una de <strong>organizare corectă a alimentelor</strong>. </p> </div> </div> </div> <footer class="text-center text-secondary py-3 small"> Dieta Rina • Planner zilnic </footer> <script> /* --- SETARE ZIUA START --- */ const startDate = new Date("2026-01-04"); startDate.setHours(0,0,0,0); const today = new Date(); today.setHours(0,0,0,0); /* --- CALCUL ZIUA CURRNTĂ (CICLU 4 ZILE) --- */ let diffDays = Math.floor((today - startDate) / (1000*60*60*24)); const dayNumber = ((diffDays % 4 + 4) % 4) + 1; /* --- AFISARE DATA --- */ document.getElementById("todayDate").textContent = today.toLocaleDateString("ro-RO",{weekday:"long",day:"numeric",month:"long",year:"numeric"}); /* --- AFISARE ZIUA SI TIPUL --- */ document.getElementById("dayBadge").textContent = Ziua ${dayNumber}; document.getElementById("dayTitle").textContent = [ "Proteine", "Amidon", "Carbohidrați", "Vitamine" ][dayNumber-1]; /* --- MENIURI + ALIMENTE PERMISE / INTERZISE --- */ const menus = { 1: <strong>🌟 Ziua 1 – PROTEINE</strong><br><br> <strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br> • Piept de pui la grătar cu salată verde<br> • Pulpe de pui (fără piele) cu legume la grătar: vinete, dovlecei, ciuperci + salată de roșii, ceapă și castraveți<br> • Somon la cuptor cu broccoli<br> • Tocăniță de vită cu ciuperci<br> • Tocăniță de vită cu ceapă, morcovi, ardei, bulion (fără cartofi / orez)<br> • Piept de curcan la grătar sau cuptor<br> • Frigărui de pui sau curcan (fără cartofi)<br> • Pui la cuptor cu legume<br> • Coaste sau cotlet de porc la grătar / cuptor<br> • Carne de vită la grătar / fiartă / cuptor<br> • Dovlecei umpluți cu carne tocată la cuptor (fără orez, orice tip de carne)<br> • Omletă cu legume (ardei, ceapă, ciuperci)<br> • Salată grecească cu brânză feta<br> • Supă clară de legume + 1 felie de pâine<br><br> <em>Dacă nu este suficient:</em><br> • După masă poți consuma până la <strong>300 ml supă clară de legume</strong><br><br> <strong>🌙 Cină (18:00–20:00)</strong><br> • Jumătate din prânz (fără pâine / fără supă)<br> • Salată verde cu ou și ton<br> • Omletă din 2 ouă cu ardei și ceapă (tigaie antiaderentă, fără ulei)<br> • Conopidă gratinată la cuptor<br> • Ardei umpluți cu brânză și roșii<br> • Guacamole cu ou poșat sau fiert<br><br> <strong>⚠️ Reguli importante</strong><br> • Nu combina proteinele cu amidon sau carbohidrați<br> • Gătit fără ulei (grătar, cuptor, fiert)<br> • Condimentele naturale sunt permise<br> • După ora 20:00 nu se mai mănâncă<br><br> <strong>✅ Alimente permise</strong><br> <b>Proteine animale:</b><br> • Carne de pasăre: pui, curcan, rață, gâscă<br> • Carne roșie: porc, vită, miel, oaie, vânat<br> • Organe: ficat, inimă, rinichi, limbă, burtă<br> • Mezeluri: șuncă presată, jambon, prosciutto<br> • Pește: somon, păstrăv, macrou, hering<br> • Fructe de mare: creveți, midii, scoici, caracatiță<br> • Lactate degresate: brânză, telemea, mozzarella, iaurt, kefir<br> • Ouă<br><br> <b>Permise suplimentar:</b><br> • Fructe: mere, pere, banane, kiwi, citrice, fructe de pădure<br> • Legume (fără leguminoase): roșii, castraveți, ardei, salată, spanac, dovlecel, ciuperci, broccoli<br> • Supă de legume<br> • 1 felie de pâine , 2: <strong>🌟 Ziua 2 – AMIDON</strong><br><br> <strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br> <strong>🍚 Orez / Quinoa</strong><br> • Pilaf de orez cu legume<br> • Mâncare de spanac cu orez (fără ouă sau lapte)<br> • Supă de roșii cu orez<br> • Ciorbă de urzici cu orez<br> • Pilaf de quinoa cu legume<br> • Salată rece de quinoa cu crudități (ceapă verde, leurdă, castraveți, roșii, ridichi)<br><br> <strong>🥔 Cartofi</strong><br> • Salată orientală (fără ou și fără maioneză)<br> • Cartofi copți la cuptor<br> • Cartofi natur cu pătrunjel (fără unt)<br> • Musaca de cartofi cu vinete și roșii la cuptor (rețetă vegană)<br> • Cartofi înăbușiți cu ceapă și usturoi (fără ulei)<br> • Tocăniță de varză cu cartofi la cuptor<br><br> <strong>🌱 Leguminoase</strong><br> • Fasole bătută (fără ulei)<br> • Ciorbă de fasole (rețetă de post)<br> • Salată de crudități cu boabe de fasole roșie<br> • Supă cremă de linte<br> • Tocăniță de mazăre (fără carne)<br> • Chiftele de fasole la cuptor<br> • Hummus<br> • Salată de năut cu ceapă, roșii și pătrunjel<br><br> <strong>🌙 Cină (18:00–20:00)</strong><br> • Jumătate din prânz (fără pâine / fără supă)<br> • Salată de legume + porția de amidon aleasă la prânz<br><br> <strong>⚠️ Reguli importante</strong><br> • Nu se consumă proteine animale (carne, ouă, lactate)<br> • Gătit fără ulei, prăjeli sau unt<br> • Condimentele și verdețurile sunt permise<br> • Cafea și ceai – fără lapte și fără zahăr<br> • După ora 20:00 nu se mai mănâncă<br><br> <strong>✅ Alimente permise</strong><br> • Cereale integrale: orez brun, quinoa, hrișcă<br> • Leguminoase: fasole, linte, mazăre, năut<br> • Legume: spanac, broccoli, varză, dovlecel, morcov, vinete, ciuperci<br> • Fructe: banane, mere, kiwi, citrice, fructe de pădure<br> • 40 g pâine<br> • 100 g nuci și semințe crude<br> • Cafea neîndulcită (fără lapte)<br> • Ceai neîndulcit<br> • Min. 2 L apă<br><br> <strong>❌ Alimente interzise</strong><br> • Proteine animale<br> • Cartofi prăjiți, chipsuri, snack-uri<br> • Uleiuri, prăjeli<br> • Zahăr<br> • Alcool, sucuri îndulcite<br> • Sosuri (maioneză, ketchup, smântână)<br> • Cafea cu lapte , 3: <strong>🌟 Ziua 3 – CARBOHIDRAȚI</strong><br><br> <strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br> <strong>🍕 Preparate principale</strong><br> • Pizza cu legume<br> • Shaorma vegetariană<br> • Burger vegan<br> • Paste cu ciuperci<br> • Supă de gulii cu tăiței<br> • Plăcintă cu legume la cuptor<br> • Langoși cu varză<br> • Covrigi cu sare sau semințe<br> • Sărățele sau alte produse de patiserie<br> • Sandwich vegan<br> • Salată rece de cușcuș cu crudități<br> • Bruschette cu roșii și busuioc<br> • Tocăniță de spanac cu pâine (orice tip)<br> • Brioșe sărate cu legume<br><br> <strong>🌙 Cină (18:00–20:00)</strong><br> • Jumătate din meniul consumat la prânz<br> • 3 pătrățele de ciocolată neagră<br><br> <strong>🍰 Alternative dulci pentru cină</strong><br> • O felie de tort sau altă prăjitură<br> • O brioșă<br> • Paste fără ou cu zahăr, pesmet și scorțișoară<br> • Biscuiți sau turtă dulce<br> • Gogoși<br> • O felie de pâine cu ciocolată<br><br> <strong>⚠️ Reguli importante</strong><br> • Nu se consumă carne, pește, ouă sau lactate<br> • Sunt permise produsele din făină albă<br> • Nu se folosesc uleiuri sau prăjeli<br> • Cafea și ceai – fără lapte<br> • După ora 20:00 nu se mai mănâncă<br><br> <strong>✅ Alimente permise</strong><br> • Făină albă, griș, mălai<br> • Produse de panificație și patiserie<br> • Dulciuri: prăjituri, biscuiți, înghețată, gem<br> • Pizza, burger vegetarian, bruschete<br> • Fructe (mic dejun): mere, citrice, kiwi, struguri<br> • Legume: roșii, castraveți, rucola, dovlecei, spanac<br> • Oleaginoase crude (doar dimineața)<br> • Supă clară de legume<br> • Cafea / ceai fără lapte<br> • Min. 2 L apă<br><br> <strong>❌ Alimente interzise</strong><br> • Carne, pește, ouă, lactate<br> • Leguminoase și amidonoase<br> • Uleiuri, prăjeli<br> • Alcool, băuturi carbogazoase<br> • Cafea cu lapte , 4: <strong>🌟 Ziua 4 – VITAMINE</strong><br><br> <strong>🍽️ Sugestii mic dejun (08:00–10:00)</strong><br> • Salată mare de crudități: salată verde, ceapă, roșii, castraveți, ridichi, ardei<br> • După 2 ore: maximum 100 g migdale raw (neprajite, nesărate)<br> • După alte 2 ore: două nectarine sau fructe similare<br><br> <strong>🍽️ Sugestii prânz (12:00–14:00)</strong><br> • Legume la grătar: ardei roșu, roșii, dovlecel, ciuperci, vinete<br> • După 2 ore: maximum 100 g migdale raw sau un pahar de smoothie de fructe<br> • După alte 2 ore: o portocală, 2 kiwi sau 2 mere<br><br> <strong>🌙 Cină (18:00–20:00)</strong><br> • Compot cald de pere neîndulcit <br> • Sau salată de fructe<br><br> <strong>⚠️ Reguli importante</strong><br> • Se consumă doar fructe și legume, crude sau preparate fără ulei<br> • Nicio combinație de fructe cu legume la aceeași masă<br> • Gustările se fac la 2 ore distanță între ele<br> • Nu se consumă carne, pește, ouă sau lactate<br> • După ora 20:00 nu se mai mănâncă<br><br> <strong>✅ Alimente permise</strong><br> • Fructe: mere, kiwi, citrice, pepene, fructe de pădure<br> • Legume: broccoli, dovlecel, vinete, varză, sfeclă, morcov<br> • Fructe deshidratate<br> • Nuci și semințe crude (gustare)<br> • Plante aromatice<br> • Cafea și ceai neîndulcite<br> • Multă apă + mișcare minim 30 min<br><br> <strong>❌ Alimente interzise</strong><br> • Carne, pește, ouă, lactate<br> • Amidon, leguminoase<br> • Pâine, paste, dulciuri<br> • Uleiuri, grăsimi<br> • Alcool, sucuri, îndulcitori<br> • Sosuri (maioneză, ketchup) }; /* --- AFISARE MENIU DIRECT --- */ document.getElementById("menuAccordion").innerHTML = <div class="card-text"> ${menus[dayNumber]} </div>; </script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> </body> </html>
+<!DOCTYPE html>
+<html lang="ro" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dieta Rina</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body { background:#121212; color:#fff; }
+.card { box-shadow:0 0 18px rgba(0,0,0,.4); }
+.badge-day { font-size:1rem; }
+.accordion-button { background:#1c1c1c; color:#fff; }
+.accordion-button:not(.collapsed) { background:#2c2c2c; color:#fff; }
+.accordion-body { background:#121212; color:#fff; }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-black shadow">
+  <div class="container d-flex justify-content-center">
+    <span class="navbar-brand fw-bold">🥗 Dieta Rina</span>
+  </div>
+</nav>
+
+<div class="container py-4">
+
+  <div class="text-center mb-4">
+    <h1 class="fw-bold" id="todayDate"></h1>
+  </div>
+
+  <!-- MIC DEJUN GENERAL -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5>🍎 Mic dejun (zilnic)</h5>
+      <ul class="mb-0">
+        <li>Interval: <strong>08:00 – 12:00</strong></li>
+        <li>Consumă <strong>doar fructe</strong>, din 2 în 2 ore</li>
+        <li>Fructe simple sau smoothie fără zahăr</li>
+        <li>Este permisă <strong>cafea neîndulcită</strong></li>
+        <li>⚠️ Excepție: zi de post (doar apă)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ACCORDION ZILE -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <span class="badge bg-primary badge-day mb-2" id="dayBadge"></span>
+      <h4 class="mb-3" id="dayTitle"></h4>
+      <div class="accordion" id="menuAccordion"></div>
+    </div>
+  </div>
+
+  <!-- CONDITII & SECRETE DIETA RINA -->
+  <div class="card mt-4">
+    <div class="card-body">
+      <h5 class="mb-3">📌 Condiții & Secrete Dieta Rina</h5>
+      <strong>✅ Reguli esențiale</strong>
+      <ul>
+        <li>Dieta se bazează pe un ciclu de <strong>4 zile</strong> care se repetă.</li>
+        <li><strong>Nu se combină proteinele cu carbohidrații sau amidonul.</strong></li>
+        <li>Între mese trebuie respectat un interval minim de <strong>4 ore</strong>.</li>
+        <li>Mic dejunul este <strong>doar din fructe</strong>, indiferent de zi.</li>
+        <li>Cina este întotdeauna <strong>mai mică decât prânzul</strong>.</li>
+        <li>După ora <strong>20:00 nu se mai mănâncă</strong>.</li>
+      </ul>
+      <strong>🧠 Secrete pentru rezultate mai bune</strong>
+      <ul>
+        <li>Hidratarea este esențială: <strong>minim 2 litri de apă/zi</strong>.</li>
+        <li>Sportul ușor (mers, stretching) accelerează rezultatele.</li>
+        <li>Nu se folosesc <strong>uleiuri sau prăjeli</strong>, indiferent de zi.</li>
+        <li>Condimentele naturale sunt permise și recomandate.</li>
+        <li>Cafeaua este permisă <strong>fără lapte și fără zahăr</strong>.</li>
+        <li>Alcoolul încetinește arderea – este recomandat să fie evitat.</li>
+      </ul>
+      <strong>⚠️ Greșeli frecvente</strong>
+      <ul>
+        <li>Combinarea alimentelor din zile diferite.</li>
+        <li>Săritul peste mese urmat de porții mari.</li>
+        <li>Gustări „nevinovate” între mese.</li>
+        <li>Consum excesiv de dulciuri în ziua de carbohidrați.</li>
+      </ul>
+      <strong>💡 Recomandare finală</strong>
+      <p class="mb-0">
+        Respectarea strictă a structurii pe zile este cheia succesului. Dieta Rina
+        nu este o dietă de înfometare, ci una de <strong>organizare corectă a alimentelor</strong>.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="text-center text-secondary py-3 small">
+  Dieta Rina • Planner zilnic
+</footer>
+
+<script>
+// --- DATA & ZIUA CURRNTĂ ---
+const startDate = new Date("2026-01-04");
+startDate.setHours(0,0,0,0);
+const today = new Date();
+today.setHours(0,0,0,0);
+let diffDays = Math.floor((today - startDate) / (1000*60*60*24));
+const dayNumber = ((diffDays % 4 + 4) % 4) + 1;
+
+document.getElementById("todayDate").textContent = today.toLocaleDateString("ro-RO",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+
+const dayNames = ["Proteine", "Amidon", "Carbohidrați", "Vitamine"];
+document.getElementById("dayBadge").textContent = `Ziua ${dayNumber}`;
+document.getElementById("dayTitle").textContent = dayNames[dayNumber-1];
+
+// --- MENIURI ---
+const menus = {
+1: `<strong>🌟 Ziua 1 – PROTEINE</strong><br>...conținut complet Ziua 1...`,
+2: `<strong>🌟 Ziua 2 – AMIDON</strong><br>...conținut complet Ziua 2...`,
+3: `<strong>🌟 Ziua 3 – CARBOHIDRAȚI</strong><br>...conținut complet Ziua 3...`,
+4: `<strong>🌟 Ziua 4 – VITAMINE</strong><br>...conținut complet Ziua 4...`
+};
+
+// --- ACCORDION ZILE ---
+const menuAccordion = document.getElementById("menuAccordion");
+
+for (let i = 1; i <= 4; i++) {
+  const isActive = (i === dayNumber) ? "show" : "";
+  const buttonCollapsed = (i === dayNumber) ? "" : "collapsed";
+
+  const item = document.createElement("div");
+  item.className = "accordion-item bg-dark text-white";
+  item.innerHTML = `
+    <h2 class="accordion-header" id="heading${i}">
+      <button class="accordion-button ${buttonCollapsed}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${i}" aria-expanded="${i===dayNumber}" aria-controls="collapse${i}">
+        Ziua ${i} – ${dayNames[i-1]}
+      </button>
+    </h2>
+    <div id="collapse${i}" class="accordion-collapse collapse ${isActive}" aria-labelledby="heading${i}" data-bs-parent="#menuAccordion">
+      <div class="accordion-body text-white">
+        ${menus[i]}
+      </div>
+    </div>
+  `;
+  menuAccordion.appendChild(item);
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
