@@ -3,198 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dieta Rina – Planner</title>
+<title>Dieta Rina – Ziua curentă</title>
 
-<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-body {
-    background: #121212;
-    transition: background 0.3s, color 0.3s;
-}
-.card {
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 18px rgba(0,0,0,0.4);
-}
-.today {
-    outline: 2px solid #0d6efd;
-    box-shadow: 0 0 12px rgba(13,110,253,0.6);
-}
-textarea { resize: none; }
-@media print {
-    nav, .no-print { display: none !important; }
-    body { background: white !important; color: black !important; }
-}
+body { background:#121212; }
+.card { box-shadow:0 0 18px rgba(0,0,0,.4); }
+.badge-day { font-size:1rem; }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-dark bg-black shadow">
   <div class="container d-flex justify-content-between">
-    <span class="navbar-brand fw-bold">🥗 Dieta Rina – Planner</span>
+    <span class="navbar-brand fw-bold">🥗 Dieta Rina</span>
     <button class="btn btn-outline-light btn-sm" onclick="toggleTheme()">🌙 / ☀️</button>
   </div>
 </nav>
 
 <div class="container py-4">
 
-<!-- HEADER -->
 <div class="text-center mb-4">
-  <h1 class="fw-bold">Calendar + Meniu Detaliat</h1>
-  <p class="text-secondary">30 de zile • Calendar real • Exemple clare de meniu</p>
+  <h1 class="fw-bold">Ziua curentă din Dieta Rina</h1>
+  <p class="text-secondary" id="todayDate"></p>
 </div>
 
-<!-- CALENDAR -->
-<div class="row g-3 mb-5" id="calendar"></div>
-
-<!-- MENIU 12 ZILE -->
-<h3 class="mb-3">📅 Exemple de Meniu – Primele 12 Zile</h3>
-
-<div class="accordion" id="accordionMenu">
-
-<!-- ZIUA 1 -->
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#z1">
-      Ziua 1 – Proteine
-    </button>
-  </h2>
-  <div id="z1" class="accordion-collapse collapse" data-bs-parent="#accordionMenu">
-    <div class="accordion-body">
-      <strong>Mic dejun:</strong> 2 mere / 2 portocale  
-      <br><strong>Prânz:</strong> Piept de pui la grătar + salată + felie de pâine  
-      <br><strong>Cina:</strong> Jumătate din prânz, fără pâine
-    </div>
-  </div>
-</div>
-
-<!-- ZIUA 2 -->
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#z2">
-      Ziua 2 – Amidon
-    </button>
-  </h2>
-  <div id="z2" class="accordion-collapse collapse" data-bs-parent="#accordionMenu">
-    <div class="accordion-body">
-      <strong>Mic dejun:</strong> Fructe  
-      <br><strong>Prânz:</strong> Orez cu legume + salată + felie de pâine  
-      <br><strong>Cina:</strong> Jumătate din prânz, fără pâine
-    </div>
-  </div>
-</div>
-
-<!-- ZIUA 3 -->
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#z3">
-      Ziua 3 – Carbohidrați
-    </button>
-  </h2>
-  <div id="z3" class="accordion-collapse collapse" data-bs-parent="#accordionMenu">
-    <div class="accordion-body">
-      <strong>Mic dejun:</strong> Fructe  
-      <br><strong>Prânz:</strong> Paste cu sos de roșii / pizza vegetariană  
-      <br><strong>Cina:</strong> Desert mic (ciocolată neagră)
-    </div>
-  </div>
-</div>
-
-<!-- ZIUA 4 -->
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#z4">
-      Ziua 4 – Vitamine
-    </button>
-  </h2>
-  <div id="z4" class="accordion-collapse collapse" data-bs-parent="#accordionMenu">
-    <div class="accordion-body">
-      <strong>Mic dejun:</strong> Fructe  
-      <br><strong>Prânz:</strong> Salate + fructe  
-      <br><strong>Cina:</strong> Fructe sau smoothie
-    </div>
-  </div>
-</div>
-
-</div>
-
-<!-- NOTE -->
-<div class="card mt-5">
+<!-- MIC DEJUN GENERAL -->
+<div class="card mb-4">
   <div class="card-body">
-    <h5>📝 Note personale</h5>
-    <textarea id="notes" class="form-control" rows="5"
-      placeholder="Greutate, stare, observații..."></textarea>
+    <h5>🍎 Mic dejun (zilnic)</h5>
+    <ul class="mb-0">
+      <li>Interval: <strong>08:00 – 12:00</strong></li>
+      <li>Consumă <strong>doar fructe</strong>, indiferent de zi</li>
+      <li>Poți mânca fructe din <strong>2 în 2 ore</strong></li>
+      <li>Fructe simple, smoothie, fresh sau compot neîndulcit</li>
+      <li>Înainte de micul dejun: <strong>1 pahar cu apă</strong></li>
+      <li>Este permisă <strong>cafea neîndulcită</strong> sau cu puțină miere</li>
+      <li>⚠️ Excepție: ziua de post (doar apă)</li>
+    </ul>
   </div>
 </div>
 
-<div class="text-center mt-4 no-print">
-  <button class="btn btn-outline-secondary" onclick="window.print()">🖨️ Print</button>
+<!-- ZIUA CURENTĂ -->
+<div class="card">
+  <div class="card-body">
+    <span class="badge bg-primary badge-day mb-2" id="dayBadge"></span>
+    <h4 class="mb-3" id="dayTitle"></h4>
+
+    <div class="accordion" id="menuAccordion"></div>
+  </div>
 </div>
 
 </div>
 
 <footer class="text-center text-secondary py-3 small">
-  Dieta Rina • 2026
+  Dieta Rina • Planner zilnic
 </footer>
 
-<!-- JAVASCRIPT -->
 <script>
-/* CALENDAR REAL */
-const cycle = [
-  { name:"Proteine", color:"danger", emoji:"🍗" },
-  { name:"Amidon", color:"warning", emoji:"🍚" },
-  { name:"Carbohidrați", color:"info", emoji:"🍝" },
-  { name:"Vitamine", color:"success", emoji:"🍊" }
-];
+const startDate = new Date("2026-01-01"); // poți schimba data de start
+startDate.setHours(0,0,0,0);
 
-const calendar = document.getElementById("calendar");
-const today = new Date(); today.setHours(0,0,0,0);
+const today = new Date();
+today.setHours(0,0,0,0);
 
-for (let i = 0; i < 30; i++) {
-  const d = new Date(today);
-  d.setDate(today.getDate() + i);
-  const day = cycle[i % 4];
-  const isToday = i === 0;
+const diffDays = Math.floor((today - startDate) / (1000*60*60*24));
+const dayNumber = (diffDays % 12 + 12) % 12 + 1;
 
-  calendar.innerHTML += `
-    <div class="col-6 col-md-4 col-lg-3">
-      <div class="card h-100 border-${day.color} ${isToday?'today':''}">
-        <div class="card-body">
-          <span class="badge bg-${day.color}">Ziua ${i+1}</span><br>
-          <strong>${day.emoji} ${day.name}</strong><br>
-          <small class="text-secondary">
-            ${d.toLocaleDateString("ro-RO",{weekday:"short",day:"numeric",month:"short"})}
-          </small>
-          ${isToday ? '<div class="badge bg-primary mt-2">AZI</div>' : ''}
-        </div>
-      </div>
-    </div>`;
-}
+document.getElementById("todayDate").textContent =
+  today.toLocaleDateString("ro-RO",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+
+document.getElementById("dayBadge").textContent = `Ziua ${dayNumber}`;
+document.getElementById("dayTitle").textContent = [
+  "Proteine","Amidon","Carbohidrați","Vitamine",
+  "Proteine","Amidon","Carbohidrați","Vitamine",
+  "Proteine","Amidon","Carbohidrați","Vitamine"
+][dayNumber-1];
+
+const menus = {
+1:`<strong>Prânz (12:00–14:00)</strong><br>
+Pulpe de pui fără piele cu legume la grătar + salată. 1 felie de pâine permisă.<br>
+Opțional: 300 ml supă clară de legume.<hr>
+<strong>Cină (18:00–20:00)</strong><br>
+Jumătate din prânz, fără pâine și fără supă.`,
+
+2:`<strong>Prânz</strong><br>
+Ardei umpluți cu orez + salată. Pâine și supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz, fără pâine și supă.`,
+
+3:`<strong>Prânz</strong><br>
+Paste fără ou cu sos de roșii. Supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz + 3 pătrățele de ciocolată neagră sau un desert.`,
+
+4:`<strong>Prânz</strong><br>
+Salată mare de crudități. La 2h: max 100g migdale raw. Fructe din 2 în 2 ore.<hr>
+<strong>Cină</strong><br>
+Mere coapte cu scorțișoară. Nimic după ora 20:00.`,
+
+5:`<strong>Prânz</strong><br>
+Păstrăv la cuptor sau grătar cu legume sote. Pâine + supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz, fără pâine și supă.`,
+
+6:`<strong>Prânz</strong><br>
+Tocăniță de cartofi fără carne + salată de sfeclă. Supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz.`,
+
+7:`<strong>Prânz</strong><br>
+Tocăniță de ciuperci cu mămăligă. Supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz + 3 pătrățele de ciocolată.`,
+
+8:`<strong>Prânz</strong><br>
+Legume la grătar. La 2h: migdale sau smoothie. La alte 2h: fructe.<hr>
+<strong>Cină</strong><br>
+Compot de pere neîndulcit sau salată de fructe.`,
+
+9:`<strong>Prânz</strong><br>
+Spanac cu ouă + pâine. Supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz.`,
+
+10:`<strong>Prânz</strong><br>
+Fasole scăzută fără carne + salată. Pâine și supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz.`,
+
+11:`<strong>Prânz</strong><br>
+Cuscus cu legume. Supă clară opțional.<hr>
+<strong>Cină</strong><br>
+Jumătate din prânz + ciocolată sau pâine cu ciocolată.`,
+
+12:`<strong>Prânz</strong><br>
+Legume la cuptor. La 2h: migdale sau fructe.<hr>
+<strong>Cină</strong><br>
+Salată de crudități sau fructe.`
+};
+
+document.getElementById("menuAccordion").innerHTML = `
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#menu">
+      🍽️ Meniu complet pentru azi
+    </button>
+  </h2>
+  <div id="menu" class="accordion-collapse collapse show">
+    <div class="accordion-body">${menus[dayNumber]}</div>
+  </div>
+</div>`;
 
 /* THEME */
 function toggleTheme(){
-  const html = document.documentElement;
-  const next = html.getAttribute("data-bs-theme")==="dark" ? "light" : "dark";
-  html.setAttribute("data-bs-theme", next);
-  localStorage.setItem("theme", next);
+  const html=document.documentElement;
+  const t=html.getAttribute("data-bs-theme")==="dark"?"light":"dark";
+  html.setAttribute("data-bs-theme",t);
+  localStorage.setItem("theme",t);
 }
-const savedTheme = localStorage.getItem("theme");
-if(savedTheme) document.documentElement.setAttribute("data-bs-theme", savedTheme);
-
-/* NOTES */
-const notes = document.getElementById("notes");
-notes.value = localStorage.getItem("rina_notes") || "";
-notes.addEventListener("input",()=>localStorage.setItem("rina_notes", notes.value));
+const saved=localStorage.getItem("theme");
+if(saved) document.documentElement.setAttribute("data-bs-theme",saved);
 </script>
 
-<!-- Bootstrap JS (OBLIGATORIU pentru accordion) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
