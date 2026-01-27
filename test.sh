@@ -62,6 +62,26 @@ echo "${NEW_USER} ALL=(ALL) NOPASSWD:ALL" > "${SUDOERS_FILE}"
 chmod 440 "${SUDOERS_FILE}"
 
 # ======================
+# Remove default ubuntu user (if exists)
+# ======================
+if id ubuntu &>/dev/null; then
+  log "Removing default user 'ubuntu'..."
+
+  # Kill ubuntu processes (otherwise userdel may fail)
+  pkill -KILL -u ubuntu 2>/dev/null || true
+  sleep 1
+  # Remove sudoers file if present
+  rm -f /etc/sudoers.d/ubuntu || true
+  # Remove user and home
+  deluser --remove-home ubuntu || true
+  # Remove ubuntu group if left behind
+  getent group ubuntu &>/dev/null && delgroup ubuntu || true
+  log "User 'ubuntu' removed."
+else
+  log "User 'ubuntu' not present, skipping."
+fi
+
+# ======================
 # SSH port (safe drop-in)
 # ======================
 log "Set SSH port to ${SSH_PORT}"
